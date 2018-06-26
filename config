@@ -213,15 +213,15 @@ assign [class="^Mate-disk-usage-analyzer"] $workspace10
 assign [class="(^Pamac*|Notes|Lxtask)"] $workspace10
 
 # shutdown actions
-mode "[s]air, [d]esligar, [r]einiciar, [s]uspender" {
-	bindsym s exec i3-msg exit
-	bindsym d exec systemctl poweroff
-	bindsym r exec systemctl reboot
-	bindsym s exec systemctl suspend
+mode "[1]logout, [2]poweroff, [3]reboot, [4]suspand" {
+	bindsym 1 exec i3-msg exit
+	bindsym 2 exec systemctl poweroff
+	bindsym 3 exec systemctl reboot
+	bindsym 4 exec systemctl suspend
 	bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-bindsym $mod+Mod1+e mode "[s]air, [d]esligar, [r]einiciar, [s]uspender"
+bindsym $mod+Mod1+e mode "[1]logout, [2]poweroff, [3]reboot, [4]suspand"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -308,7 +308,7 @@ exec i3-config-wizard
 # default workspace
 exec --no-startup-id i3-msg $workspace1
 # touchpad initial
-exec --no-startup-id synclient VertScrollDelta=-39 HorizTwoFingerScroll=1 TapButton1=1 TapButton2=3 TapButton3=2
+exec --no-startup-id synclient VertScrollDelta=-39 HorizScrollDelta=-5 HorizTwoFingerScroll=1 TapButton1=1 TapButton2=3 TapButton3=2
 # windows effect
 exec --no-startup-id exec compton &
 # shadowsocks-qt5
