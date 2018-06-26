@@ -2,60 +2,59 @@ general {
         output_format = 'i3bar'
         colors = true
         interval = 5
-        color_degraded = "#cb4b16"
-        color_bad = "#dc322f"
         color_good = "#859900"
+        color_bad = "#dc322f"
+        color_degraded = "#cb4b16"
         color_separator = "#586e75"
 }
 
+order += "wireless wlp3s0"
 order += "cpu_temperature 0"
 order += "volume master"
 order += "disk /home"
 order += "cpu_usage"
-order += "wireless wlp3s0"
 order += "battery 1"
 order += "tztime local"
-# order += "run_watch DHCP"
 
 cpu_temperature 0 {
-        format = "♨️ %degrees °C"
+        format = "%degrees°C"
         path = "/sys/class/thermal/thermal_zone2/temp"
         max_threshold = 60
 }
 
 volume master {
-	format = "♪ %volume"
+	format = "%volume"
 	device = "default"
 	mixer = "Master"
 	mixer_idx = 0
 }
 
 disk "/home" {
-        format = "~ %free"
+        format = "%free"
 }
 
 cpu_usage {
-        format = "CPU: %usage"
+        format = "%usage"
 }
 
 wireless wlp3s0 {
-        format_up = "W: (%quality at %essid) %ip"
-        format_down = "W: down"
+        format_up = "[%essid]%ip"
+        format_down = ""
 }
 
 battery 1 {
-        format = "%status %percentage %remaining"
+        format = "%status%percentage %remaining"
         format_down = "No battery"
-        status_chr = "⚡ "
-        status_bat = "🔋 "
-        status_unk = "? "
-        status_full = "☻ "
+        status_chr = ""
+        status_bat = ""
+        status_unk = ""
+        status_full = ""
         path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 10
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M"
+        format = "%Y-%m-%d %H:%M"
 }
 
 run_watch DHCP {
@@ -78,8 +77,6 @@ ethernet eth0 {
         format_up = "E: %ip (%speed)"
         format_down = "E: down"
 }
-
-
 
 load {
         format = "%5min"
