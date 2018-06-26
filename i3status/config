@@ -1,0 +1,87 @@
+general {
+        output_format = 'i3bar'
+        colors = true
+        interval = 5
+        color_degraded = "#cb4b16"
+        color_bad = "#dc322f"
+        color_good = "#859900"
+        color_separator = "#586e75"
+}
+
+order += "cpu_temperature 0"
+order += "volume master"
+order += "disk /home"
+order += "cpu_usage"
+order += "wireless wlp3s0"
+order += "battery 1"
+order += "tztime local"
+# order += "run_watch DHCP"
+
+cpu_temperature 0 {
+        format = "♨️ %degrees °C"
+        path = "/sys/class/thermal/thermal_zone2/temp"
+        max_threshold = 60
+}
+
+volume master {
+	format = "♪ %volume"
+	device = "default"
+	mixer = "Master"
+	mixer_idx = 0
+}
+
+disk "/home" {
+        format = "~ %free"
+}
+
+cpu_usage {
+        format = "CPU: %usage"
+}
+
+wireless wlp3s0 {
+        format_up = "W: (%quality at %essid) %ip"
+        format_down = "W: down"
+}
+
+battery 1 {
+        format = "%status %percentage %remaining"
+        format_down = "No battery"
+        status_chr = "⚡ "
+        status_bat = "🔋 "
+        status_unk = "? "
+        status_full = "☻ "
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M"
+}
+
+run_watch DHCP {
+        pidfile = "/run/dhcpcd-*.pid"
+        pidfile = "%title: %status"
+}
+
+run_watch VPNC {
+        # file containing the PID of a vpnc process
+        pidfile = "/var/run/vpnc/pid"
+}
+
+path_exists VPN {
+        # path exists when a VPN tunnel launched by nmcli/nm-applet is active
+        path = "/proc/sys/net/ipv4/conf/tun0"
+}
+
+ethernet eth0 {
+        # if you use %speed, i3status requires the cap_net_admin capability
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+
+
+
+load {
+        format = "%5min"
+}
+
