@@ -193,15 +193,16 @@ for_window [title="Lista de amigos"] floating enable, move absolute position 166
 
 # open apps in workspaces
 assign [class="^code"] $workspace0
+assign [class="(Termite|Tilix)"] $workspace0
 assign [class="^(chrome|Chromium|Firefox|firefox-developer)"] $workspace1
-assign [class="(Termite|Tilix)"] $workspace2
 assign [class="(Pluma|Sublime_text|Atom)"] $workspace3
 assign [class="^Thunar"] $workspace4
 assign [class="^Gimp"] $workspace5
 assign [class="^Inkscape"] $workspace5
 assign [class="^Lxappearance"] $workspace5
-assign [class="^Deadbeef"] $workspace6
+assign [class="^Deadbeef"] $workspace2
 assign [class="^Gmpc"] $workspace6
+assign [class="^steam"] $workspace6
 assign [class="^Deluge"] $workspace7
 assign [class="^Thunderbird"] $workspace8
 assign [class="^Telegram"] $workspace9
