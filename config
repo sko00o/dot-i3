@@ -116,6 +116,7 @@ bindsym $mod+minus move scratchpad
 bindsym $mod+Shift+minus scratchpad show
 
 # Need install this fonts `sudo pacman -S ttf-font-awesome`
+# or download Font-Awesome source code and put `.ttf` file in `~/.fonts/`
 # Icones:               
 set $workspace0  "0: "
 set $workspace1  "1: "
@@ -191,11 +192,15 @@ for_window [title="About Mozilla Firefox"] floating enable, move position center
 for_window [title="Sobre o Mozilla Firefox"] floating enable, move position center
 for_window [title="Lista de amigos"] floating enable, move absolute position 1667 px 0 px, resize set 250 px 400 px
 
-# open apps in workspaces
-assign [class="^code"] $workspace0
+# open apps in workspace
+# `xprop` to get the class name of apps
+# it works
+assign [class="chrome"] $workspace1
+assign [class="^Telegram"] $workspace9
+# not test
 assign [class="(Termite|Tilix)"] $workspace0
-assign [class="^(chrome|Chromium|Firefox|firefox-developer)"] $workspace1
-assign [class="(Pluma|Sublime_text|Atom)"] $workspace3
+assign [class="^(Chromium|Firefox|firefox-developer)"] $workspace1
+assign [class="^(Code|Pluma|Sublime_text|Atom)"] $workspace3
 assign [class="^Thunar"] $workspace4
 assign [class="^Gimp"] $workspace5
 assign [class="^Inkscape"] $workspace5
@@ -205,7 +210,6 @@ assign [class="^Gmpc"] $workspace6
 assign [class="^steam"] $workspace6
 assign [class="^Deluge"] $workspace7
 assign [class="^Thunderbird"] $workspace8
-assign [class="^Telegram"] $workspace9
 assign [class="^Whatsie"] $workspace9
 assign [class="^Hexchat"] $workspace9
 assign [class="^Gtkman"] $workspace10
@@ -278,9 +282,6 @@ bar {
         }
 }
 
-# locakscreen
-bindsym $mod+shift+x exec --no-startup-id i3lock -i '/home/shank/Pictures/lockscreen.jpg'
-
 # file manager
 bindsym $mod+e exec thunar
 
@@ -300,7 +301,9 @@ bindsym Mod1+ctrl+bracketleft exec --no-startup-id cmus-remote --prev && pkill -
 # Play Pause
 bindsym Mod1+ctrl+backslash exec --no-startup-id cmus-remote --pause && pkill --signal SIGRTMIN+13 i3blocks
 
-# startup
+# locakscreen
+bindsym $mod+shift+x exec --no-startup-id i3lock -t -c ff00ff -i '/home/shank/Pictures/lockscreen.png'
+
 # wallpaper
 exec_always --no-startup-id feh --bg-fill '/home/shank/Pictures/wallpaper.jpg'
 # config check
@@ -314,4 +317,4 @@ exec --no-startup-id exec compton &
 # shadowsocks-qt5
 exec ss-qt5 &
 # ibus input
-exec_always GTK_IM_MODULE=ibus XMODIFIERS=@im=ibus QT_IM_MODULE=ibus ibus-daemon -drx
+exec GTK_IM_MODULE=ibus XMODIFIERS=@im=ibus QT_IM_MODULE=ibus ibus-daemon -drx
