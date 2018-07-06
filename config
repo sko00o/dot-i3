@@ -246,13 +246,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Color definition
-set $cinza                      #8c8b8b
 set $texto                      #ffffff
 set $texto-active               #3465a4
 set $texto-inactive             #888888
 set $texto-urgente              #cc5252
 set $semitransparente           #00000073
 set $transparente               #00000000
+set $cinza                      #8c8b8b
 set $bg-color 	                #2f343f
 set $text-color                 #f3f4f5
 set $inactive-bg-color          #2f343f
