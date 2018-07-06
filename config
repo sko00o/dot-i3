@@ -3,8 +3,6 @@
 
 # use `xmodmap -pke` to get key define 
 
-
-
 # Mod4: Win / Mod1: Alt
 set $mod Mod4
 
@@ -210,7 +208,7 @@ mode "[1]logout, [2]poweroff, [3]reboot, [4]suspand" {
 	bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-bindsym $mod+Mod1+e mode "[1]logout, [2]poweroff, [3]reboot, [4]suspand"
+bindsym $mod+u mode "[1]logout, [2]poweroff, [3]reboot, [4]suspand"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
