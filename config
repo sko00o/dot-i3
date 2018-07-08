@@ -102,9 +102,9 @@ bindsym $mod+Shift+minus scratchpad show
 # or download Font-Awesome source code and put `.ttf` file in `~/.fonts/`
 # Icones:               
 set $workspace0  "0: "
-set $workspace1  "1: "
-set $workspace2  "2: "
-set $workspace3  "3: "
+set $workspace1  "1: "
+set $workspace2  "2: "
+set $workspace3  "3: "
 set $workspace4  "4: "
 set $workspace5  "5: "
 set $workspace6  "6: "
@@ -178,17 +178,16 @@ for_window [title="Lista de amigos"] floating enable, move absolute position 166
 # open apps in workspace
 # `xprop` to get the class name of apps
 # it works
-assign [class="chrome"] $workspace1
+assign [class="^(Code|Pluma|Sublime_text|Atom)"] $workspace1
+assign [class="chrome"] $workspace2
+assign [class="^Deadbeef"] $workspace3
 assign [class="^Telegram"] $workspace9
-# not test
 assign [class="(Termite|Tilix)"] $workspace0
 assign [class="^(Chromium|Firefox|firefox-developer)"] $workspace1
-assign [class="^(Code|Pluma|Sublime_text|Atom)"] $workspace3
 assign [class="^Thunar"] $workspace4
 assign [class="^Gimp"] $workspace5
 assign [class="^Inkscape"] $workspace5
 assign [class="^Lxappearance"] $workspace5
-assign [class="^Deadbeef"] $workspace2
 assign [class="^Gmpc"] $workspace6
 assign [class="^steam"] $workspace6
 assign [class="^Deluge"] $workspace7
