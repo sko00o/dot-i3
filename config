@@ -1,7 +1,7 @@
 # i3 config file (v4)
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-# use `xmodmap -pke` to get key define 
+# use `xmodmap -pke` to get key define
 
 # Mod4: Win / Mod1: Alt
 set $mod Mod4
@@ -46,7 +46,7 @@ bindsym $mod+d exec rofi -show run \
 -font "System San Francisco Display 18" \
 -lines 4 -eh 2 -width 100 -padding 800 \
 
-# bindsym $mod+d exec dmenu_run 
+# bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -178,20 +178,17 @@ for_window [title="Lista de amigos"] floating enable, move absolute position 166
 # open apps in workspace
 # `xprop` to get the class name of apps
 # it works
+assign [class="(Termite|Tilix)"] $workspace0
 assign [class="^(Code|Pluma|Sublime_text|Atom)"] $workspace1
 assign [class="chrome"] $workspace2
-assign [class="^Deadbeef"] $workspace3
-assign [class="^Telegram"] $workspace9
-assign [class="(Termite|Tilix)"] $workspace0
-assign [class="^(Chromium|Firefox|firefox-developer)"] $workspace1
+assign [class="^(Deadbeef|netease-cloud-music)"] $workspace3
 assign [class="^Thunar"] $workspace4
-assign [class="^Gimp"] $workspace5
-assign [class="^Inkscape"] $workspace5
-assign [class="^Lxappearance"] $workspace5
+assign [class="^(Gimp|Inkscape)"] $workspace5
 assign [class="^Gmpc"] $workspace6
 assign [class="^steam"] $workspace6
 assign [class="^Deluge"] $workspace7
 assign [class="^Thunderbird"] $workspace8
+assign [class="^Telegram"] $workspace9
 assign [class="^Whatsie"] $workspace9
 assign [class="^Hexchat"] $workspace9
 assign [class="^Gtkman"] $workspace10
@@ -287,7 +284,7 @@ bar {
 		urgent_workspace        $urgent-bg-color   $urgent-bg-color   $text-color
                 # focused_workspace	$transparente	$transparente	$texto-active
                 # inactive_workspace	$transparente	$transparente	$texto-inactive
-                # urgent_workspace	$transparente	$transparente	$texto-urgente		
+                # urgent_workspace	$transparente	$transparente	$texto-urgente
         }
 }
 
@@ -295,12 +292,18 @@ bar {
 bindsym $mod+e exec thunar
 
 # Volume control
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+ 
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%-
+bindsym XF86AudioMute exec --nostartup-id amixer -q sset Master 0%
+bindsym XF86AudioMute+shift exec --nostartup-id amixer -q sset Master 45%
 
 # brightness control
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+
+# screen shot
+bindsym $mod+Print exec scrot -e 'mv $f /tmp/ && feh /tmp/$f'
+bindsym Print exec scrot -s -e 'mv $f /tmp/ && feh /tmp/$f'
 
 # music play control
 # Next Song
