@@ -7,7 +7,7 @@
 set $mod Mod4
 
 # Appearance setting:
-# `sudo pacman -S install arc-gtk-theme`
+# `sudo pacman -S arc-gtk-theme`
 # `sudo pacman -S lxappearance`
 # `vim .gtkrc-2.0`
 # `vim .config/gtk-3.0/settings.ini`
