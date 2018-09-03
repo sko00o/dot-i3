@@ -297,6 +297,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%-
 bindsym XF86AudioMute exec --nostartup-id amixer -q sset Master 0%
 bindsym XF86AudioMute+shift exec --nostartup-id amixer -q sset Master 45%
 
+# sudo pacman -S xorg-xbacklight
 # brightness control
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
