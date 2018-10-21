@@ -9,3 +9,7 @@ yaourt -S i3-gaps-next-git
 ```
 
 put this repo dir in `~/.config/`
+
+```sh
+git clone https://github.com/sko00o/dot-i3.git ~/.config/i3
+```
