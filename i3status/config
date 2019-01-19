@@ -8,12 +8,12 @@ general {
         color_separator = "#586e75"
 }
 
-order += "wireless wlp3s0"
+order += "wireless wlp58s0"
 order += "cpu_temperature 0"
 order += "volume master"
 order += "disk /home"
 order += "cpu_usage"
-order += "battery 1"
+order += "battery 0"
 order += "tztime local"
 
 cpu_temperature 0 {
@@ -42,6 +42,11 @@ wireless wlp3s0 {
         format_down = ""
 }
 
+wireless wlp58s0 {
+        format_up = "[%essid]%ip"
+        format_down = ""
+}
+
 battery 1 {
         format = "%status%percentage %remaining"
         format_down = "No battery"
@@ -52,6 +57,18 @@ battery 1 {
         path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 10
 }
+
+battery 0 {
+        format = "%status%percentage %remaining"
+        format_down = "No battery"
+        status_chr = ""
+        status_bat = ""
+        status_unk = ""
+        status_full = ""
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+}
+
 
 tztime local {
         format = "%Y-%m-%d %H:%M"
