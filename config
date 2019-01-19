@@ -45,6 +45,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show run \
 -font "System San Francisco Display 18" \
 -lines 4 -eh 2 -width 100 -padding 800 \
+-theme /usr/share/rofi/themes/sidebar.rasi
 
 # bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -315,10 +316,10 @@ bindsym Mod1+ctrl+bracketleft exec --no-startup-id cmus-remote --prev && pkill -
 bindsym Mod1+ctrl+backslash exec --no-startup-id cmus-remote --pause && pkill --signal SIGRTMIN+13 i3blocks
 
 # locakscreen
-bindsym $mod+shift+x exec --no-startup-id i3lock -t -c ff00ff -i '/home/shank/Pictures/lockscreen.png'
+bindsym $mod+shift+x exec --no-startup-id i3lock -t -c ff00ff -i $HOME/Pictures/lockscreen.png
 
 # wallpaper
-exec_always --no-startup-id feh --bg-fill '/home/shank/Pictures/wallpaper.jpg'
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpaper.jpg
 # config check
 exec i3-config-wizard
 # default workspace
@@ -330,6 +331,6 @@ exec_always --no-startup-id syndaemon -t -k -i 1 -d &
 # windows effect
 exec --no-startup-id exec compton &
 # shadowsocks-qt5
-exec ss-qt5 &
+#exec ss-qt5 &
 # ibus input
 exec GTK_IM_MODULE=ibus XMODIFIERS=@im=ibus QT_IM_MODULE=ibus ibus-daemon -drx
