@@ -324,13 +324,16 @@ exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpaper.jpg
 exec i3-config-wizard
 # default workspace
 exec --no-startup-id i3-msg $workspace1
-# touchpad initial
-exec_always --no-startup-id synclient VertEdgeScroll=1 HorizEdgeScroll=1 VertScrollDelta=-45 HorizScrollDelta=-100 HorizTwoFingerScroll=1 TapButton1=1 TapButton2=3 TapButton3=2 PalmDetect=1 PalmMinWidth=3
-# stop touchpad after type
-exec_always --no-startup-id syndaemon -t -k -i 1 -d &
+# touchpad initial (thinkpad x250)
+#exec_always --no-startup-id synclient VertEdgeScroll=1 HorizEdgeScroll=1 VertScrollDelta=-45 HorizScrollDelta=-100 HorizTwoFingerScroll=1 TapButton1=1 TapButton2=3 TapButton3=2 PalmDetect=1 PalmMinWidth=3
+# touchpad initial for (dell xps13 9360)
+exec xinput set-prop 11 276 1 # tapping enable
+exec xinput set-prop 11 284 1 # natural scrolling enable
+# stop touchpad after type (thinkpad x250)
+#exec_always --no-startup-id syndaemon -t -k -i 1 -d &
 # windows effect
 exec --no-startup-id exec compton &
-# shadowsocks-qt5
+# shadowsocks-qt5 (use sslocal instead)
 #exec ss-qt5 &
 # ibus input
 exec GTK_IM_MODULE=ibus XMODIFIERS=@im=ibus QT_IM_MODULE=ibus ibus-daemon -drx
